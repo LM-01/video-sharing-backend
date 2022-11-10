@@ -1,6 +1,6 @@
-import { createError } from "../error";
-import User from "../models/User";
-import Video from "../models/Video";
+import { createError } from "../error.js";
+import User from "../models/User.js";
+import Video from "../models/Video.js";
 
 export const test = (req, res) => {
     res.json("Its Successful");
@@ -97,7 +97,7 @@ export const sub = async (req, res, next) => {
         const list = Promise.all(
             subscribedChannels.map(channelId => {
                 return Video.find({userId: channelId});
-            })
+            }))
 
     } catch (error) {
         next(error);
